@@ -5,7 +5,7 @@ open FSharp.Data
 let url = "https://tfeapp.com/api/website"
 
 
-type StopTimes = JsonProvider<"https://tfeapp.com/api/website/stop_times.php?stop_id=6200242000">
+type StopTimes = JsonProvider<"https://tfeapp.com/api/website/stop_times.php?stop_id=6200208460">
 
 type CommonStops =
     | DukeStreetNW = 6200242000UL
@@ -23,9 +23,9 @@ let stop_times(stop) =
 let stop_times_common_stop(cstop) =
     stop_id_of_common_stop cstop |> stop_times
 
-let get_service (data : StopTimes.Root) (service : int) =
+let get_service (data : StopTimes.Root) (service : string) =
     data.Services
-    |> Seq.tryFind (fun s -> s.ServiceName = service)
+    |> Seq.tryFind (fun s -> s.ServiceName.String.Value = service)
 
 let service_get_service_minutes (service : StopTimes.Servicis) =
     service.Departures

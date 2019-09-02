@@ -7,7 +7,7 @@ open Avalonia.Media
 type TrackerViewModelService() =
     inherit ViewModelBase()
 
-    member val Name = 0 with get, set
+    member val Name = "" with get, set
     member val Next = "-" with get, set
     member val Further = "" with get, set
     member val Colours = ServiceColours.default_colour with get, set
@@ -55,7 +55,7 @@ type TrackerViewModel() =
                       let name = stopData.Stop.Name
                       let direction = sprintf "(%s)" stopData.Stop.Direction
                       let services =
-                        stop.Services
+                        stop.Services.Strings
                         |> Seq.map (fun service ->
                           let minutes = BusApi.get_service_minutes stopData service
                           let next = Seq.tryHead minutes |> Option.map (sprintf "%d min") |> Option.defaultValue "-"

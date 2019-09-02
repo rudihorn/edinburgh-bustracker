@@ -1,0 +1,21 @@
+{
+  "destinations" : [
+      {
+          "name": "Dalkeith",
+          "stops": [
+              {
+                  "name": "St Patrick Square (SE)",
+                  "id": 6200208530,
+                  "services": ["N3",3,7,31,300],
+                  "wd": 5
+              },
+              {
+                  "name": "Surgeons' Hall (SE)",
+                  "id": 6200208460,
+                  "services": ["N1", "N30",30],
+                  "wd": 4
+              }
+          ]
+      }
+  ]
+}
